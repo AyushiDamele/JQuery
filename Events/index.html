@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQuery Crash Course | Selectors</title>
+	<script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<style>
+		body {
+			font-size:17px;
+			font-family: arial;
+			background: #f4f4f4;
+			line-height: 1.5em;
+		}
+		header {
+			background: #333;
+			color: #fff;
+			padding: 15px;
+			text-align: center;
+			border-bottom: 4px #000 solid;
+			margin-bottom: 10px;
+		}
+		#container {
+			width:90%;
+			margin:auto;
+			padding:10px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1> JQuery Events</h1> 
+	</header>
+	<div id="container">
+		<h5>Mouse Events</h5>
+		<button id="btn1"> Button 1</button>
+		<button id="btn2"> Button 2</button>
+		<p id="para1"> Human beings (and other animals) make decisions all the time that affect their lives, <span>from small ("should I eat one cookie or two?") to large </span>("should I stay in my home astrophysics?") </p>
+
+		<p id="coords"> </p>
+		<hr>
+		<form id="form">
+			<label>Name</label> <br>
+			<input type="text" id="name" name="name">
+			<br>
+			<label>Email</label> <br>
+			<input type="email" id="email" name="email">
+			<br>
+			<label>Gender</label>
+			<select id="gender" name="gender">
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+			</select>
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+
+	<script>
+		<!-- ready function is used so that the function gets called when the document is ready and the elements are initialized. -->
+
+		$(document).ready(function() {
+			// $('#btn1').click(function(){
+			// 	alert('Button Clicked!');
+			// });
+
+			<!-- When btn1 is cicked hide para1 and show it on click of btn2 -->
+
+			// $('#btn1').on('click',function(){
+			// 	$('#para1').hide();
+			// });
+
+			// $('#btn2').on('click',function(){
+			// 	$('#para1').show();
+			// });
+
+			<!-- Use the toggle function to hide and show on click of button 1-->
+			
+			// $('#btn1').on('click',function(){
+			// 	$('#para1').toggle();
+			// });	
+
+			<!-- Use the toggle function to hide and show on double click of button 1-->
+
+			// $('#btn1').on('dblclick',function(){
+			// 	$('#para1').toggle();
+			// });	
+
+			<!-- Use the toggle function to hide and show on hover of button 1-->
+
+			<!--For the hover this function does not work -->
+			// $('#btn1').on('hover',function(){
+			// 	$('#para1').toggle();
+			// });	
+
+			<!-- This will work correctly-->
+
+			// $('#btn1').hover(function() {
+			// 	$('#para1').toggle();
+			// })
+
+			// $('#btn1').on('mouseenter',function() {
+			// 	$('#para1').toggle();
+			// })
+
+			// $('#btn1').on('mouseleave',function() {
+			// 	$('#para1').toggle();
+			// })
+
+			// $('#btn1').on('mouseup',function() {
+			// 	$('#para1').toggle();
+			// })
+
+			// $('#btn1').on('mousedown',function() {
+			// 	$('#para1').toggle();
+			// })
+	
+			<!-- To pass the parameter inside the function-->
+
+			// $('#btn1').click(function(e) {
+			// 	console.log(e);
+			// 	alert(e.currentTarget.innerHTML);
+			// 	console.log("coords X:"+e.clientX+" Y:"+e.clientY )
+			// })
+
+			// $(document).mousemove(function(e) {
+			// 	$('#coords').html('Coords : X:'+e.clientX+" Y:"+e.clientY);
+			// });
+
+			<!--To focus on input elements -->
+			$('input').focus(function() {
+				$(this).css('background','blue');
+			});
+
+			$('input').blur(function() {
+				$(this).css('background','white');
+			});
+
+			$('input').keyup(function(e) {
+				console.log(e.target.value);
+			});
+
+			$('select#gender').change(function(e){
+				alert(e.target.value);
+			})
+
+			$('#form').submit(function(e){
+				e.preventDefault();
+				console.log('Submitted');
+			})
+
+		});
+
+	</script>
+
+</body>
+</html>
